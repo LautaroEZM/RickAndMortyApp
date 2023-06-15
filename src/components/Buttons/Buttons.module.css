@@ -1,0 +1,43 @@
+.btnClose{
+    color:white ;
+    font-weight: bold;
+    background-color: #dc363f;
+    border-radius: 5px;
+    float: right;
+    margin: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+}
+
+.btnClose:hover{
+    background-color: #a12828;
+    transition: background-color 0.2s;
+}
+
+.btnClose:active{
+    background-color: #601213;
+}
+
+.btnFav{
+    color:white ;
+    font-weight: bold;
+    background-color: #248046;
+    border-radius: 5px;
+    float: left;
+    margin: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btnFav:hover{
+    background-color: #1f6637;
+}
+
+.btnFav:active{
+    background-color: #124322;
+}
+
+

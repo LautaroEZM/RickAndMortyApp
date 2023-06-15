@@ -1,0 +1,21 @@
+.aboutContainer {
+    margin-top: 15px;
+    background-color: rgba(35, 36, 40, 0.8);
+    height: 110%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.Title{
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    
+}
+
+.text{
+    color: white;
+    font-weight:lighter;
+    font-size: 15px;
+    text-align: center;
+}

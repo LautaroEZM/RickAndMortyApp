@@ -1,0 +1,32 @@
+.NavBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2b2d31;
+    outline: 0, 5px solid black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    width: 100%;
+}
+.navButton {
+    color: white;
+    background-color: #2b2d31;
+    margin: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    font-family: 'Arial Narrow';
+    font-size: 15px;
+}
+
+.navButton:hover{
+background-color: #17181b;
+transition: background-color 0.2s;
+}
+
+.navButton:active{
+background-color: #313338;
+}

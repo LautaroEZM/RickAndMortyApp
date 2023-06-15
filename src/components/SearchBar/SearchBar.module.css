@@ -1,0 +1,39 @@
+.searchCamp {
+    margin: 5px;
+    float: initial;
+    height: 25px;
+}
+
+.btnSearch {
+    margin: 5px;
+    float: right;
+    background-color: #5788f3;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s;
+    width: 50px;
+    height: 25px;
+}
+
+.btnSearch:hover{
+    background-color: #4752c4;
+    transition: background-color 0.2s;
+}
+
+.btnSearch:active{
+    background-color: #3c45a5;
+}
+
+.headerDiv {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    background: #2b2d31;
+    outline: 0, 5px solid black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+}
+
