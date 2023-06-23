@@ -17,7 +17,8 @@
     border-radius: 5px;
     top: 18.3%;
     left: 24.4%;
-    width: 75%;
+    width: 80%;
+    height: 250px;
     border: 2px solid #232428;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -46,6 +47,9 @@
     margin: 1px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
     height: 35px;
+    background-color: rgb(228, 175, 28);
+    color: #232428;
+    border-radius: 5px;
 }
 
 .textContent {
@@ -54,4 +58,26 @@
     font-family: 'Arial Narrow';
     font-size: 23px;
     text-align: center;
+    
+    border-radius: 5px;
+}
+
+.btnFav{
+    color:white ;
+    font-weight: bold;
+    background-color: #248046;
+    border-radius: 5px;
+    float: left;
+    margin: 5px;
+    border: 1px solid transparent;
+    transition: background-color 0.2s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btnFav:hover{
+    background-color: #1f6637;
+}
+
+.btnFav:active{
+    background-color: #124322;
 }

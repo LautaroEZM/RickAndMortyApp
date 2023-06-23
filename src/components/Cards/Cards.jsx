@@ -1,34 +1,52 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card/Card.jsx";
 import style from "./Cards.module.css";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import characters from "../../data.js";
 
-export default function Cards(props) {
+export default function Cards() {
   const [chars, setChars] = useState(characters);
 
-  function onSearch(id) {
-    if (id < 1 || id > 826 || id === undefined) {
-      return window.alert("Tiene que elegir un valor entre 1 y 826");
+  // Nuevo efecto para cargar las cartas desde el almacenamiento local al cargar el componente
+  useEffect(() => {
+    const storedChars = localStorage.getItem("characters");
+    if (storedChars) {
+      setChars(JSON.parse(storedChars));
     }
-    const idCharacter = chars.find((char) => char.id == id);
+  }, []);
+
+  // Nuevo efecto para guardar las cartas actualizadas en el almacenamiento local cada vez que cambien
+  useEffect(() => {
+    localStorage.setItem("characters", JSON.stringify(chars));
+  }, [chars]);
+
+  function onSearch(id) {
+    if (isNaN(id) || id < 1 || id > 826 || id === undefined) {
+      return window.alert("You must choose a valid numeric value between 1 and 826.");
+    }
+
+    // Convertir el ID a número antes de la comparación
+    const idNumber = parseInt(id);
+
+    const idCharacter = chars.find((char) => char.id === idNumber);
     if (idCharacter) {
-      window.alert("Ya existe este personaje entre las cartas");
+      window.alert("This character already exists among the cards.");
     } else {
-      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      fetch(`https://rickandmortyapi.com/api/character/${idNumber}`)
         .then((res) => res.json())
-        .then((data) => setChars([...chars, data]));
+        .then((data) => setChars((prevChars) => [...prevChars, data]));
     }
   }
 
   return (
     <div>
-      <div className={style.container}><SearchBar onSearch={onSearch} /></div>
+      <div className={style.container}>
+        <SearchBar onSearch={onSearch} />
+      </div>
 
       <div className={style.cardContainer}>
         {chars.map((char, index) => {
-          return <Card key={index} char={char} onClose={props.onClose} />;
+          return <Card key={index} char={char} />;
         })}
       </div>
     </div>
