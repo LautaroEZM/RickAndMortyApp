@@ -7,19 +7,21 @@ import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Forms/Forms";
 import Favorites from "./components/Favorites/Favorites";
+import axios from "axios";
 
 function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const EMAIL = "ejemplo@gmail.com";
-  const PASSWORD = "test123";
 
   function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      return navigate("/Cards");
-    }
-  }
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/Cards');
+    });
+ }
 
   useEffect(() => {
     !access && navigate("/");

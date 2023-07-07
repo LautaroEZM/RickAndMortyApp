@@ -3,6 +3,7 @@ import Card from "../Card/Card.jsx";
 import style from "./Cards.module.css";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import characters from "../../data.js";
+import axios from "axios";
 
 export default function Cards() {
   const [chars, setChars] = useState(characters);
@@ -32,8 +33,10 @@ export default function Cards() {
     if (idCharacter) {
       window.alert("This character already exists among the cards.");
     } else {
-      fetch(`https://rickandmortyapi.com/api/character/${idNumber}`)
-        .then((res) => res.json())
+      axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+        .then((response) => { 
+          console.log({response: response.data});
+          return response.data })
         .then((data) => setChars((prevChars) => [...prevChars, data]));
     }
   }
